@@ -19,13 +19,44 @@
 
     <form>
       <label>Nome</label>
-      <input type="text" placeholder="Digite seu nome">
+      <input type="text" placeholder="Digite seu nome completo">
 
       <label>Email</label>
-      <input type="email" placeholder="Digite seu email">
+      <input id="email" type="email" placeholder="Digite seu email">
 
-      <label>Senha</label>
-      <input type="password" placeholder="Digite sua senha">
+      <label>CPF</label>
+      <input type="number" max="10" placeholder="Digite seu CPF">
+
+      <label>Celular</label>
+      <input type="tel" placeholder="Digite seu telefone">
+
+      <label>CEP</label>
+      <input type="text" placeholder="Digite seu CEP">
+
+      <label>Endereço</label>
+      <input type="text" placeholder="Digite seu endereço">
+
+      <label>Bairro</label>
+      <input type="text" placeholder="Bairro">
+
+      <label>Estado</label>
+      <input type="text" placeholder="Estado">
+
+
+      <label>Data de Nascimento</label>
+      <input type="date" placeholder="Data de nascimento">
+
+      <form onsubmit="return validarSenha()">
+  <label>Senha:</label>
+  <input type="password" id="senha" required minlength="6">
+
+  <label>Confirmar senha:</label>
+  <input type="password" id="csenha" required>
+
+
+
+  <button type="submit">Cadastrar</button>
+</form>
 
       <label>Tipo de Cadastro</label>
       <div class="radio-group">
@@ -33,10 +64,10 @@
         <label><input type="radio" name="tipo" value="colaborador"> Colaborador</label>
       </div>
 
-      <button type="submit">Cadastrar</button>
       <p>Já tem um cadastro? <a href="login.html">Faça login</a>
     </form>
   </div>
 
+  <script src="index.js"></script>
 </body>
 </html>
