@@ -6,7 +6,8 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-   <header class="header">
+
+  <header class="header">
     <h1>Assistência Inclusiva</h1>
     <nav>
       <a href="#">Serviços</a>
@@ -17,18 +18,19 @@
   <div class="container">
     <h2>Cadastro</h2>
 
-    <form>
+    <form id="formCadastro">
+
       <label>Nome</label>
-      <input type="text" placeholder="Digite seu nome completo">
+      <input type="text" placeholder="Digite seu nome completo" required>
 
       <label>Email</label>
-      <input id="email" type="email" placeholder="Digite seu email">
+      <input id="email" type="email" placeholder="Digite seu email" required>
 
       <label>CPF</label>
-      <input type="number" max="10" placeholder="Digite seu CPF">
+      <input type="text" placeholder="Digite seu CPF" required>
 
       <label>Celular</label>
-      <input type="tel" placeholder="Digite seu telefone">
+      <input type="tel" placeholder="Digite seu telefone" required>
 
       <label>CEP</label>
       <input type="text" placeholder="Digite seu CEP">
@@ -42,21 +44,14 @@
       <label>Estado</label>
       <input type="text" placeholder="Estado">
 
-
       <label>Data de Nascimento</label>
-      <input type="date" placeholder="Data de nascimento">
+      <input type="date" required>
+    
+      <label>Senha</label>
+      <input type="password" id="senha" required minlength="6">
 
-      <form onsubmit="return validarSenha()">
-  <label>Senha:</label>
-  <input type="password" id="senha" required minlength="6">
-
-  <label>Confirmar senha:</label>
-  <input type="password" id="csenha" required>
-
-
-
-  <button type="submit">Cadastrar</button>
-</form>
+      <label>Confirmar senha</label>
+      <input type="password" id="csenha" required>
 
       <label>Tipo de Cadastro</label>
       <div class="radio-group">
@@ -64,7 +59,12 @@
         <label><input type="radio" name="tipo" value="colaborador"> Colaborador</label>
       </div>
 
-      <p>Já tem um cadastro? <a href="login.html">Faça login</a>
+      <button type="submit">Cadastrar</button>
+
+      <p class="link">
+        Já tem cadastro? <a href="login.html">Faça login</a>
+      </p>
+
     </form>
   </div>
 

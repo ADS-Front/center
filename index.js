@@ -1,34 +1,52 @@
-// function validarSenha(event) {
-//       event.preventDefault(); 
-//     let senha = document.getElementById("senha").value;
-//     let csenha = document.getElementById("csenha");
+document.addEventListener("DOMContentLoaded", function () {
 
-//     if (senha !== csenha.value) {
-        
-//         csenha.setCustomValidity("As senhas não coincidem");
-//         csenha.reportValidity();
-//     } else {
-//         csenha.setCustomValidity("");
-//     }
-// }
+  // ===== CADASTRO =====
+  const formCadastro = document.getElementById("formCadastro");
 
-document.addEventListener("DOMContentLoaded", function (event) {
-    
-    const form = document.getElementById("formCadastro");
+  if (formCadastro) {
     const senha = document.getElementById("senha");
     const csenha = document.getElementById("csenha");
 
- 
-      event.preventDefault(); 
-  
+    formCadastro.addEventListener("submit", function (event) {
+      event.preventDefault();
 
-    if (senha !== csenha.value) {
-        
+      if (senha.value !== csenha.value) {
         csenha.setCustomValidity("As senhas não coincidem");
         csenha.reportValidity();
-    } else {
-        csenha.setCustomValidity("");
-    }
+        return;
+      }
 
+      const email = document.getElementById("email").value;
+
+      // salvar no navegador
+      localStorage.setItem("usuario", email);
+      localStorage.setItem("senha", senha.value);
+
+      alert("Cadastro realizado com sucesso!");
+      window.location.href = "login.html";
+    });
+  }
+
+  // ===== LOGIN =====
+  const formLogin = document.getElementById("formLogin");
+
+  if (formLogin) {
+    formLogin.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const email = document.querySelector("input[type='email']").value;
+      const senha = document.querySelector("input[type='password']").value;
+
+      const emailSalvo = localStorage.getItem("usuario");
+      const senhaSalva = localStorage.getItem("senha");
+
+      if (email === emailSalvo && senha === senhaSalva) {
+        alert("Login realizado!");
+        window.location.href = "index.html";
+      } else {
+        alert("Email ou senha inválidos");
+      }
+    });
+  }
 
 });
