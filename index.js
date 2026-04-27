@@ -102,10 +102,10 @@ celInput.addEventListener("input", (e) => {
       event.preventDefault();
 
       if (senha.value !== csenha.value) {
-        csenha.setCustomValidity("As senhas não coincidem");
-        csenha.reportValidity();
-        return;
-      }
+        //csenha.setCustomValidity("As senhas não coincidem");
+        //csenha.reportValidity();
+        return false;
+      }else{
 
       const email = document.getElementById("email").value;
 
@@ -115,7 +115,7 @@ celInput.addEventListener("input", (e) => {
 
       alert("Cadastro realizado com sucesso!");
       window.location.href = "login.html";
-    });
+   } });
   }
 
   // ===== LOGIN =====
