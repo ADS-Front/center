@@ -1,1 +1,1 @@
-"Projeto modulo de front-end UNISUAM  Grupo: Bryan, Giovana, Ney Robson" 
+"Projeto modulo de front-end UNISUAM  Grupo: Bryan, Giovana, Ney Robson, Gabriel Santos" 
