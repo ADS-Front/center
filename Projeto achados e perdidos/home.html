@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Início / Achados e Perdidos</title>
+    <link rel="stylesheet" href="style-home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="layout-container">
+        <nav class="sidebar-left">
+            <div class="nav-links">
+                <div class="logo"><i class="fas fa-university"></i></div>
+                <a href="home.html" class="nav-item active"><i class="fas fa-home"></i> <span>Página Inicial</span></a>
+                <a href="index.html" class="nav-item"><i class="fas fa-search"></i> <span>Explorar/Buscar</span></a>
+                <a href="#" class="nav-item"><i class="far fa-bell"></i> <span>Notificações</span></a>
+                <a href="#" class="nav-item"><i class="far fa-user"></i> <span>Perfil</span></a>
+                <button class="post-btn-main">Relatar Item</button>
+            </div>
+        </nav>
+
+        <main class="main-feed">
+            <header class="feed-header">
+                <h2>Página Inicial</h2>
+            </header>
+
+            <section class="create-post">
+                <div class="user-avatar">
+                    <img src="https://ui-avatars.com/api/?name=Usuario+Logado&background=1d9bf0&color=fff" alt="Avatar">
+                </div>
+                <div class="post-input-container">
+                    <textarea id="post-text" placeholder="O que você encontrou ou perdeu no campus?"></textarea>
+                    <div class="post-actions">
+                        <div class="post-icons">
+                            <i class="far fa-image"></i>
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <button id="submit-post" class="submit-btn" disabled>Publicar</button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="timeline" class="timeline">
+                </section>
+        </main>
+
+        <aside class="sidebar-right">
+            <div class="widget-card">
+                <h3>Estatísticas do Campus</h3>
+                <div class="stat-item">
+                    <span>Itens recuperados hoje:</span>
+                    <strong>12</strong>
+                </div>
+                <div class="stat-item">
+                    <span>Pendentes:</span>
+                    <strong>45</strong>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <script src="script-home.js"></script>
+</body>
+</html>

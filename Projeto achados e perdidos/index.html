@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achados e Perdidos - Pesquisa</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="layout-container">
+        
+        <main class="main-content">
+            <header class="search-header">
+                <div class="search-bar-container">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="search-input" placeholder="Buscar itens perdidos ou achados...">
+                    <button id="clear-search" class="clear-btn hidden"><i class="fas fa-times"></i></button>
+                </div>
+            </header>
+
+            <nav class="search-tabs">
+                <button class="tab-btn active" data-filter="todos">Todos</button>
+                <button class="tab-btn" data-filter="perdido">Perdidos</button>
+                <button class="tab-btn" data-filter="achado">Achados</button>
+            </nav>
+
+            <section class="results-feed" id="results-feed">
+                </section>
+        </main>
+
+        <aside class="sidebar-filters">
+            <div class="filter-card">
+                <h3>Filtros de Busca</h3>
+                
+                <div class="filter-group">
+                    <label for="filter-category">Categoria</label>
+                    <select id="filter-category">
+                        <option value="todos">Todas as categorias</option>
+                        <option value="eletronicos">Eletrônicos (Celular, Notebook)</option>
+                        <option value="documentos">Documentos / Carteiras</option>
+                        <option value="chaves">Chaves</option>
+                        <option value="outros">Outros</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="filter-location">Local aproximado</label>
+                    <select id="filter-location">
+                        <option value="todos">Todos os locais</option>
+                        <option value="bloco-a">Bloco A</option>
+                        <option value="bloco-b">Bloco B</option>
+                        <option value="cantina">Praça de Alimentação / Cantina</option>
+                        <option value="estacionamento">Estacionamento</option>
+                    </select>
+                </div>
+
+                <button id="btn-reset-filters" class="reset-filters-btn">Limpar Filtros</button>
+            </div>
+        </aside>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
