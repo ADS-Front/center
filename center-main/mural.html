@@ -2,25 +2,46 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Mural de Serviços</title>
+  <title>Mural de Serviços - Assistência Inclusiva</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<header class="header">
-  <h1>Assistência Inclusiva</h1>
-  <nav>
-    <a href="index.html">Início</a>
-    <a href="solicitacao.html">Solicitar</a>
-    <a href="login.html">Sair</a>
-  </nav>
-</header>
+  <header class="header">
+    <h1>Assistência Inclusiva</h1>
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="mural.html">Mural</a>
+      <a href="login.html">Sair</a>
+    </nav>
+  </header>
 
-<section class="services">
-  <h2>Mural de Assistência</h2>
-  <div class="cards" id="listaServicos"></div>
-</section>
+  <div class="services">
+    <h2>Mural de Assistências Disponíveis</h2>
+    <p>Selecione um serviço para aceitar ou conversar com o solicitante.</p>
+    
+    <div id="listaServicos" class="cards"></div>
+  </div>
 
-<script src="index.js"></script>
+  <div id="chat-modal" class="modal hidden">
+    <div class="modal-content">
+        
+        <div class="chat-header">
+            <h3>Conversa sobre o Serviço</h3>
+            <button id="close-chat-btn" class="close-btn">&times;</button>
+        </div>
+
+        <div id="chat-body" class="chat-body">
+            </div>
+
+        <div class="chat-footer">
+            <input type="text" id="chat-input" placeholder="Digite sua mensagem...">
+            <button id="send-btn">Enviar</button>
+        </div>
+
+    </div>
+  </div>
+
+  <script src="index.js"></script>
 </body>
 </html>

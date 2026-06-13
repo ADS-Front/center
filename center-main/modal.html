@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modal de Chat com Pagamento</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <button id="open-chat-btn" class="open-btn">Falar com o Suporte</button>
+
+    <div id="chat-modal" class="modal hidden">
+        <div class="modal-content">
+            
+            <div class="chat-header">
+                <h3>Chat</h3>
+                <button id="close-chat-btn" class="close-btn">&times;</button>
+            </div>
+
+            <div id="chat-body" class="chat-body">
+                <div class="message system">Olá! Como posso ajudar você hoje?</div>
+            </div>
+
+            <div class="chat-footer">
+                <input type="text" id="chat-input" placeholder="Digite sua mensagem...">
+                <button id="send-btn">Enviar</button>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

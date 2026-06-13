@@ -1,205 +1,304 @@
-/* =========================
-   RESET / BASE
-========================= */
+/* ==========================================================================
+   1. RESET / CONFIGURAÇÕES BASE
+   ========================================================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  background: #f2f2f2;
-  margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1a1a1a; /* Escurecido para combinar com o tema do card */
+    color: #ffffff;
+    line-height: 1.6;
 }
 
-
-/* =========================
-   LAYOUT CENTRAL (LOGIN/CADASTRO)
-========================= */
-body.centered {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+/* Classe utilitária para páginas 100% centralizadas (ex: Login) */
+.centered-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: #f2f2f2;
 }
 
-
-/* =========================
-   CONTAINER
-========================= */
-.container-login {
-  background: white;
-  padding: 35px;
-  border-radius: 10px;
-  width: 350px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  
-  margin: 120px auto 0; /* 50px de espaço em cima */
-}
-
-.container-cadastro{
-  background: rgb(255, 255, 255);
-  padding: 50px;
-  border-radius: 20px;
-  width: 400px;
-  box-shadow: 8px 8px 10px  gray  ;
-  
-  margin: 20px; /* 50px de espaço em cima */
-}
-
-/* =========================
-   TEXTOS
-========================= */
+/* ==========================================================================
+   2. ELEMENTOS GLOBAIS DE FORMULÁRIO E TEXTO
+   ========================================================================== */
 h2 {
-  text-align: center;
-  margin-bottom: 10px;
+    text-align: center;
+    margin-bottom: 10px;
+    color: #fff;
 }
 
 label {
-  font-weight: bold;
-  display: block;
-  margin-top: 10px;
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
 }
 
-
-/* =========================
-   FORMULÁRIOS
-========================= */
 input {
-  width: 100%;
-  padding: 8px;
-  margin-top: 5px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    outline: none;
 }
 
-.radio-group {
-  margin-top: 10px;
-}
-
-.radio-group label {
-  font-weight: normal;
-  margin-right: 10px;
-}
-
-
-/* =========================
-   BOTÕES
-========================= */
-button {
-  width: 50%;
-  margin-top: 15px;
-  margin-left: 25%;
-  padding: 10px;
-  background: #38703b;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #0e9fff;
-}
-
-
-/* =========================
-   LINKS (LOGIN)
-========================= */
-.link {
-  text-align: center;
-  margin-top: 15px;
-}
-
-.link a {
-  text-decoration: none;
-  color: #23a9f7;
-  font-weight: bold;
-}
-
-.link a:hover {
-  text-decoration: underline;
-}
-  body {background-color: #ffffff;}
-
-/* =========================
-   HEADER
-========================= */
+/* ==========================================================================
+   3. ESTRUTURA PADRÃO DO SITE (HEADER, HERO, FOOTER)
+   ========================================================================== */
 .header {
-  background: rgb(1, 159, 180);
-  color: white;
-  padding: 15px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+    background: rgb(1, 159, 180);
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .header a {
-  color: rgb(253, 253, 253);
-  margin-left: 15px;
-  text-decoration: none;
-  font-weight: bold;
-}
-.header img{
-display: block;
-width: 100px;
+    color: rgb(253, 253, 253);
+    margin-left: 15px;
+    text-decoration: none;
+    font-weight: bold;
 }
 
-
-/* =========================
-   HERO (HOME)
-========================= */
-.hero {
-  text-align: center;
-  padding: 50px 20px;
-  background: #e8f5e9;
+.header img {
+    display: block;
+    width: 100px;
 }
 
-.hero h2 {
-  margin-bottom: 15px;
-}
-
-.hero button {
-  width: auto;
-  padding: 10px 20px;
-}
-
-
-/* =========================
-   SERVIÇOS
-========================= */
 .services {
-  padding: 40px 20px;
-  text-align: center;
+    padding: 40px 20px;
+    text-align: center;
 }
 
+.services h2 {
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.services p {
+    color: #aaa;
+    margin-bottom: 20px;
+}
+
+/* ==========================================================================
+   4. MURAL DE SERVIÇOS / CARDS (Estilo Escuro conforme o Print)
+   ========================================================================== */
 .cards {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-top: 20px;
-  flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+    flex-wrap: wrap;
 }
 
 .card {
-  background: white;
-  padding: 20px;
-  width: 250px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    background: #121212; /* Fundo do card igual ao print */
+    padding: 25px;
+    width: 320px;
+    border-radius: 14px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    text-align: left;
+    border: 1px solid #222;
 }
 
-
-/* =========================
-   FOOTER
-========================= */
-.footer {
-  text-align: center;
-  padding: 15px;
-  background: #4CAF50;
-  color: white;
-  margin-top: 30px;
+.card h3 {
+    font-size: 20px;
+    margin-bottom: 12px;
+    color: #fff;
 }
+
+.card p {
+    margin-bottom: 8px;
+    font-size: 15px;
+    color: #ccc;
+}
+
+.card strong {
+    color: #fff;
+}
+
+/* Botões de Ação dentro do Card */
 .card button {
-  margin-top: 10px;
-  background: #2196F3;
+    width: 100%;
+    margin-left: 0;
+    margin-top: 12px;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 15px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s ease;
 }
 
-.card button:hover {
-  background: #1976D2;
+/* Botão Aceitar (Azul do Print) */
+.card .btn-aceitar {
+    background-color: #2196F3;
+    color: white;
+}
+
+.card .btn-aceitar:hover {
+    background-color: #1976D2;
+}
+
+/* Botão de Abrir Chat */
+.card .btn-chat {
+    background-color: #ffffff;
+    color: #121212;
+}
+
+.card .btn-chat:hover {
+    background-color: #e0e0e0;
+}
+
+/* ==========================================================================
+   5. CHAT MODAL & SISTEMA DE PAGAMENTO NO CHAT
+   ========================================================================== */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.hidden { 
+    display: none !important; 
+}
+
+.modal-content {
+    width: 380px;
+    height: 500px;
+    background: white;
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+}
+
+.chat-header {
+    background-color: #007bff;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chat-header h3 { 
+    margin: 0; 
+    font-size: 16px; 
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.chat-body {
+    flex: 1;
+    padding: 15px;
+    background-color: #f9f9f9;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Balões de mensagens do chat */
+.message {
+    padding: 10px 14px;
+    border-radius: 8px;
+    max-width: 75%;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.message.system { 
+    background-color: #e9ecef; 
+    color: #333; 
+    align-self: flex-start; 
+}
+
+.message.user { 
+    background-color: #007bff; 
+    color: white; 
+    align-self: flex-end; 
+}
+
+/* Bloco de Pagamento do Chat */
+.payment-card {
+    background: #fff;
+    border: 2px solid #28a745;
+    border-radius: 8px;
+    padding: 12px;
+    align-self: flex-start;
+    max-width: 80%;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.payment-card p { 
+    margin: 0 0 10px 0; 
+    font-size: 14px; 
+    font-weight: bold; 
+    color: #28a745; 
+}
+
+.pay-btn {
+    width: 100%;
+    padding: 8px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.pay-btn:hover { 
+    background-color: #218838; 
+}
+
+.chat-footer {
+    padding: 10px;
+    display: flex;
+    border-top: 1px solid #eee;
+    background: white;
+    align-items: center;
+}
+
+#chat-input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    outline: none;
+    margin-top: 0;
+    color: #333;
+}
+
+#send-btn {
+    background: none;
+    border: none;
+    color: #007bff;
+    font-weight: bold;
+    margin-left: 10px;
+    margin-top: 0;
+    cursor: pointer;
+    width: auto;
 }
