@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entrar no Achados e Perdidos</title>
+    <link rel="stylesheet" href="style-login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="login-wrapper">
+        <div class="login-box">
+            <div class="login-logo">
+                <i class="fas fa-university"></i>
+            </div>
+            
+            <h2>Entrar no Achados e Perdidos</h2>
+
+            <form id="login-form">
+                <div class="input-group">
+                    <input type="text" id="username" required placeholder=" ">
+                    <label for="username">E-mail institucional ou Usuário</label>
+                </div>
+
+                <div class="input-group">
+                    <input type="password" id="password" required placeholder=" ">
+                    <label for="password">Senha</label>
+                    <button type="button" id="toggle-password" class="toggle-password-btn">
+                        <i class="far fa-eye"></i>
+                    </button>
+                </div>
+
+                <div class="login-options">
+                    <label class="remember-me">
+                        <input type="checkbox" id="remember">
+                        <span>Lembrar-me</span>
+                    </label>
+                    <a href="#" class="forgot-link">Esqueceu a senha?</a>
+                </div>
+
+                <div id="error-message" class="error-msg hidden">
+                    Usuário ou senha incorretos. Tente novamente.
+                </div>
+
+                <button type="submit" class="login-btn">Entrar</button>
+            </form>
+
+            <footer class="login-footer">
+    <p>Não tem uma conta? <a href="cadastro.html">Inscreva-se</a></p>
+</footer>
+        </div>
+    </div>
+
+    <script src="script-login.js"></script>
+</body>
+</html>
