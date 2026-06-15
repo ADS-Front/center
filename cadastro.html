@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar sua conta - Achados e Perdidos</title>
+    <link rel="stylesheet" href="style-login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="login-wrapper">
+        <div class="login-box">
+            <div class="login-logo">
+                <i class="fas fa-university"></i>
+            </div>
+            
+            <h2>Criar sua conta</h2>
+
+            <form id="register-form">
+                <div class="input-group">
+                    <input type="text" id="reg-name" required placeholder=" ">
+                    <label for="reg-name">Nome completo</label>
+                </div>
+
+                <div class="input-group">
+                    <input type="email" id="reg-email" required placeholder=" ">
+                    <label for="reg-email">E-mail</label>
+                </div>
+
+                <div class="input-group">
+                    <input type="tel" id="reg-phone" required placeholder=" ">
+                    <label for="reg-phone">Telefone</label>
+                </div>
+
+                <div class="input-group">
+                    <input type="text" id="reg-cpf" required placeholder=" ">
+                    <label for="reg-cpf">CPF</label>
+                </div>
+
+                <div class="input-group">
+                    <input type="date" id="reg-birth" required placeholder=" ">
+                    <label for="reg-birth">Data de nascimento</label>
+                </div>
+
+                <div class="input-group">
+                    <input type="text" id="reg-cep" required placeholder=" " maxlength="8">
+                    <label for="reg-cep">CEP (Apenas números)</label>
+                </div>
+
+                <div class="input-group">
+                    <input type="text" id="reg-address" required placeholder=" ">
+                    <label for="reg-address">Endereço (Rua, Av.)</label>
+                </div>
+
+                <div class="input-group">
+                    <input type="text" id="reg-bairro" required placeholder=" ">
+                    <label for="reg-bairro">Bairro</label>
+                </div>
+
+                <div class="input-group">
+                    <input type="text" id="reg-city" required placeholder=" ">
+                    <label for="reg-city">Cidade</label>
+                </div>
+
+                <div class="input-group">
+                    <input type="text" id="reg-state" required placeholder=" " maxlength="2">
+                    <label for="reg-state">Estado (UF)</label>
+                </div>
+
+                <div class="input-group">
+                    <input type="password" id="reg-password" required placeholder=" " maxlength="6" inputmode="numeric">
+                    <label for="reg-password">Senha (6 números)</label>
+                </div>
+
+                <div class="input-group">
+                    <input type="password" id="reg-confirm-password" required placeholder=" " maxlength="6" inputmode="numeric">
+                    <label for="reg-confirm-password">Confirmar Senha</label>
+                </div>
+
+                <div id="register-message" class="error-msg hidden"></div>
+
+                <button type="submit" class="login-btn">Criar conta</button>
+            </form>
+
+            <footer class="login-footer">
+                <p>Já tem uma conta? <a href="login.html">Entrar</a></p>
+            </footer>
+        </div>
+    </div>
+
+    <script src="script-cadastro.js"></script>
+</body>
+</html>

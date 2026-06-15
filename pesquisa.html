@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Achados e Perdidos - Pesquisa</title>
+    <link rel="stylesheet" href="style-home.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="accessibility-bar">
+        <button class="access-btn" id="btn-toggle-theme" title="Alternar Contraste"><i class="fas fa-moon"></i></button>
+        <button class="access-btn" id="btn-font-plus" title="Aumentar Fonte">A+</button>
+        <button class="access-btn" id="btn-font-minus" title="Diminuir Fonte">A-</button>
+    </div>
+
+    <div class="layout-container">
+        
+        <nav class="sidebar-left">
+            <div class="nav-links">
+                <div class="logo"><i class="fas fa-university"></i></div>
+                <a href="home.html" class="nav-item"><i class="fas fa-home"></i> <span>Página Inicial</span></a>
+                <a href="pesquisa.html" class="nav-item active"><i class="fas fa-search"></i> <span>Explorar/Buscar</span></a>
+                <a href="#" class="nav-item"><i class="far fa-bell"></i> <span>Notificações</span></a>
+                <a href="home.html" class="nav-item"><i class="far fa-envelope"></i> <span>Mensagens</span></a>
+                
+                <div class="profile-display-left" style="margin-top: auto;">
+                    <img src="" class="user-profile-img-raw" style="width:38px;height:38px;border-radius:50%">
+                    <div>
+                        <strong id="sidebar-user-name">Nome</strong>
+                        <br><span id="sidebar-user-handle">@usuario</span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <main class="main-content" id="main-content">
+            <header class="feed-header" style="position: sticky; top: 0; padding: 12px 16px; border-bottom: 1px solid var(--border-color); z-index: 10;">
+                <div class="search-bar-container" style="display: flex; align-items: center; background-color: var(--bg-secondary); border-radius: 9999px; padding: 10px 16px; margin-bottom: 12px;">
+                    <i class="fas fa-search" style="color: var(--text-muted);"></i>
+                    <input type="text" id="search-input" placeholder="Buscar itens perdidos ou achados..." style="background: none; border: none; color: var(--text-main); width: 100%; outline: none; margin-left: 10px; font-size: 15px;">
+                </div>
+                
+                <nav class="search-tabs" style="display: flex; margin: 0 -16px -12px -16px;">
+                    <div class="tab-btn active" style="flex: 1; text-align: center; padding: 12px; cursor: pointer; font-weight: bold; border-bottom: 4px solid var(--twitter-blue); color: var(--text-main);">Todos</div>
+                    <div class="tab-btn" style="flex: 1; text-align: center; padding: 12px; cursor: pointer; font-weight: bold; color: var(--text-muted);">Perdidos</div>
+                    <div class="tab-btn" style="flex: 1; text-align: center; padding: 12px; cursor: pointer; font-weight: bold; color: var(--text-muted);">Achados</div>
+                </nav>
+            </header>
+
+            <section id="results-feed" class="timeline" style="padding-top: 10px;"></section>
+        </main>
+
+        <aside class="sidebar-right">
+            <div class="widget-card">
+                <h3>Filtros Avançados</h3>
+                
+                <div class="filter-group">
+                    <label>Categoria</label>
+                    <select id="filter-category">
+                        <option value="todos">Todas as categorias</option>
+                        <option value="eletronicos">Eletrônicos (Celular, Notebook)</option>
+                        <option value="documentos">Documentos / Carteiras</option>
+                        <option value="chaves">Chaves</option>
+                    </select>
+                </div>
+
+                <div class="filter-group" style="margin-top: 12px;">
+                    <label>Local Aproximado</label>
+                    <select id="filter-location">
+                        <option value="todos">Todos os locais</option>
+                        <option value="bloco-a">Bloco A</option>
+                        <option value="bloco-b">Bloco B</option>
+                        <option value="cantina">Cantina / Praça de Alimentação</option>
+                        <option value="estacionamento">Estacionamento</option>
+                    </select>
+                </div>
+            </div>
+        </aside>
+
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Pequena lógica local complementar para animar as abas visuais do HTML de buscas
+        const abas = document.querySelectorAll('.search-tabs .tab-btn');
+        abas.forEach(aba => {
+            aba.addEventListener('click', () => {
+                abas.forEach(a => {
+                    a.classList.remove('active');
+                    a.style.color = 'var(--text-muted)';
+                    a.style.borderBottom = 'none';
+                });
+                aba.classList.add('active');
+                aba.style.color = 'var(--text-main)';
+                aba.style.borderBottom = '4px solid var(--twitter-blue)';
+                
+                // Comunica a mudança ao script.js mudando o estado global
+                window.filtroStatus = aba.textContent.toLowerCase();
+                if(typeof window.renderizarItens === 'function') window.renderizarItens();
+            });
+        });
+
+        // Configura o cabeçalho lateral com o nome do usuário ativo na sessão
+        document.addEventListener('DOMContentLoaded', () => {
+            const nomeLogado = localStorage.getItem('usuarioLogado') || 'Aluno Conectado';
+            const sName = document.getElementById('sidebar-user-name');
+            const sHandle = document.getElementById('sidebar-user-handle');
+            const rawImg = document.querySelector('.user-profile-img-raw');
+            
+            if (sName) sName.textContent = nomeLogado;
+            if (sHandle) sHandle.textContent = `@${nomeLogado.toLowerCase().replace(/\s+/g, '')}`;
+            if (rawImg) rawImg.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(nomeLogado)}&background=1d9bf0&color=fff`;
+
+            // Configuração dos eventos de Logout na barra lateral da busca
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => {
+                if (item.textContent.includes('Sair')) {
+                    item.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        localStorage.removeItem('usuarioLogado');
+                        window.location.href = 'index.html';
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
