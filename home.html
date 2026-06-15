@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Início / Achados e Perdidos</title>
+    <link rel="stylesheet" href="style-home.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- BARRA DE ACESSIBILIDADE GLOBAL -->
+    <div class="accessibility-bar">
+        <button class="access-btn" id="btn-toggle-theme" title="Alternar Contraste"><i class="fas fa-moon"></i></button>
+        <button class="access-btn" id="btn-font-plus" title="Aumentar Fonte">A+</button>
+        <button class="access-btn" id="btn-font-minus" title="Diminuir Fonte">A-</button>
+    </div>
+
+    <div class="layout-container">
+        <!-- BARRA LATERAL ESQUERDA -->
+        <nav class="sidebar-left">
+            <div class="nav-links">
+                <div class="logo"><i class="fas fa-university"></i></div>
+                <a href="home.html" class="nav-item active"><i class="fas fa-home"></i> <span>Página Inicial</span></a>
+                <a href="index.html" class="nav-item"><i class="fas fa-search"></i> <span>Explorar/Buscar</span></a>
+                <a href="#" class="nav-item"><i class="far fa-bell"></i> <span>Notificações</span></a>
+                <a href="#" class="nav-item" id="nav-chat-btn"><i class="far fa-envelope"></i> <span>Mensagens</span></a>
+                <!-- Botão funcional agora -->
+                <button class="post-btn-main" id="btn-abrir-relato">Relatar Item</button>
+
+                <div class="profile-display-left">
+                    <img src="" class="user-profile-img-raw" style="width:38px;height:38px;border-radius:50%">
+                    <div>
+                        <strong id="sidebar-user-name">Nome</strong>
+                        <br><span id="sidebar-user-handle">@usuario</span>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <main class="main-content" id="main-content">
+            <header class="feed-header">
+                <h2 id="header-welcome-title">Página Inicial</h2>
+                <span class="profile-name-sub" id="header-user-handle">@usuario</span>
+            </header>
+
+            <section class="create-post">
+                <div class="user-avatar">
+                    <img src="" id="user-avatar-img" alt="Avatar">
+                </div>
+                <div class="post-input-container">
+                    <textarea id="post-text" placeholder="O que você encontrou ou perdeu no campus?"></textarea>
+                    <div class="post-actions">
+                        <div class="post-icons">
+                            <i class="far fa-image"></i>
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <button id="submit-post" class="submit-btn" disabled>Publicar</button>
+                    </div>
+                </div>
+            </section>
+
+            <section id="timeline" class="timeline"></section>
+        </main>
+
+        <!-- BARRA LATERAL DIREITA -->
+        <aside class="sidebar-right">
+            <div class="widget-card">
+                <h3>Estatísticas do Campus</h3>
+                <div class="stat-item"><span>Itens recuperados hoje:</span><strong>12</strong></div>
+                <div class="stat-item"><span>Pendentes:</span><strong>45</strong></div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- ==========================================================================
+       MODAL FLUTUANTE: RELATAR ITEM (Estilo Caixa de Novo Tweet)
+       ========================================================================== -->
+    <div id="modal-relato" class="modal-overlay hidden">
+        <div class="modal-box">
+            <header class="modal-header">
+                <button id="btn-fechar-modal" class="close-modal-btn"><i class="fas fa-times"></i></button>
+                <h3>Novo Relato de Item</h3>
+            </header>
+            <form id="form-relatar-item">
+                <div class="modal-form-row">
+                    <div class="form-select-group">
+                        <label for="relato-status">O que aconteceu?</label>
+                        <select id="relato-status" required>
+                            <option value="perdido">Eu PERDI um item</option>
+                            <option value="achado">Eu ACHEI um item</option>
+                        </select>
+                    </div>
+                    <div class="form-select-group">
+                        <label for="relato-local">Em qual local?</label>
+                        <select id="relato-local" required>
+                            <option value="Bloco A">Bloco A</option>
+                            <option value="Bloco B">Bloco B</option>
+                            <option value="Cantina">Praça de Alimentação / Cantina</option>
+                            <option value="Estacionamento">Estacionamento</option>
+                            <option value="Não sei">Não tenho certeza</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="modal-input-text-area">
+                    <textarea id="relato-descricao" placeholder="Descreva o item com detalhes (ex: marca, cor, formato)..." required></textarea>
+                </div>
+                
+                <footer class="modal-footer">
+                    <button type="submit" class="modal-submit-btn">Publicar Relato</button>
+                </footer>
+            </form>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+       WIDGET DE CHAT / DMs (Estilo Janela de Mensagens do Twitter Web)
+       ========================================================================== -->
+    <div id="chat-widget" class="chat-window collapsed">
+        <header class="chat-header" id="chat-header-trigger">
+            <div class="chat-header-user">
+                <i class="far fa-envelope header-mail-icon"></i>
+                <span>Mensagens Diretas (DMs)</span>
+            </div>
+            <i class="fas fa-chevron-up toggle-chat-icon" id="chat-arrow-icon"></i>
+        </header>
+        <div class="chat-body">
+            <div class="chat-messages" id="chat-messages-box">
+                <div class="system-chat-alert">Início da conversa com a Central de Achados. Pergunte sobre seus itens pendentes aqui.</div>
+            </div>
+            <div class="chat-input-area">
+                <input type="text" id="chat-user-input" placeholder="Enviar uma mensagem...">
+                <button id="btn-send-chat"><i class="far fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script-home.js"></script>
+</body>
+</html>
